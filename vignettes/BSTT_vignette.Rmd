@@ -339,22 +339,21 @@ print(CAL6map, split = c(5, 2, 5, 2), more = TRUE)
 The following Figure shows checkerboard pattern impeding straightforward interpretation.
 
 ```{r, echo=FALSE, fig.align='center', fig.width=7, fig.height=3, warning=FALSE}
-library(lattice)
 setwd("C:/Users/inkku/Downloads")
 
-load("Result_BSTT.rda")
+load("PPD_BSTT_TN.rda")
+load("CAL_BSTT_TN.rda")
 
 t = 28; s = 6; b = 2;
 
-PPD_B.est <- result$B.est[2:6,1:(t*s),]
+PPD_B.est <-PPD_BSTT_TN$B.est[2:6,1:(t*s),]
+CAL_B.est <-CAL_BSTT_TN$B.est[2:6,1:(t*s),]
 
 PPD2init <- as.matrix(PPD_B.est[1,,])
 PPD3init <- as.matrix(PPD_B.est[2,,])
 PPD4init <- as.matrix(PPD_B.est[3,,])
 PPD5init <- as.matrix(PPD_B.est[4,,])
 PPD6init <- as.matrix(PPD_B.est[5,,])
-
-CAL_B.est <- result$B.est[2:6,(t*s + 1):(t*s*b),]
 
 CAL2init <- as.matrix(CAL_B.est[1,,])
 CAL3init <- as.matrix(CAL_B.est[2,,])
@@ -383,7 +382,7 @@ PPD2map <- matrix(PPD2map, t,s)
 
 PPD2map <- levelplot(t(PPD2map),col.regions = Acol.regions,xlab="sites",ylab="teeth", at = c(-1000,-1.5,-0.8,0.8,1.5,1000),
                      colorkey = FALSE, labels=as.character(c(-1000,-1.5,-0.8,0.8,1.5,1000)),
-                     margin=F, scales = list(draw = FALSE),main = "PPD_Age")
+                     margin=F, scales = list(draw = FALSE),main = list(label = "PPD_Age", cex = 1))
 
 print(PPD2map, split = c(1, 1, 5, 2), more = TRUE)
 
@@ -406,7 +405,7 @@ PPD3map <- matrix(PPD3map, t,s)
 
 PPD3map <- levelplot(t(PPD3map),col.regions = Acol.regions,xlab="sites",ylab="teeth", at = c(-1000,-1.5,-0.8,0.8,1.5,1000),
                      colorkey = FALSE, labels=as.character(c(-1000,-1.5,-0.8,0.8,1.5,1000)),
-                     margin=F, scales = list(draw = FALSE),main = "PPD_Gender")
+                     margin=F, scales = list(draw = FALSE),main = list(label = "PPD_Gender", cex = 1))
 
 print(PPD3map, split = c(2, 1, 5, 2), more = TRUE)
 
@@ -429,7 +428,7 @@ PPD4map <- matrix(PPD4map, t,s)
 
 PPD4map <- levelplot(t(PPD4map),col.regions = Acol.regions,xlab="sites",ylab="teeth", at = c(-1000,-1.5,-0.8,0.8,1.5,1000),
                      colorkey = FALSE, labels=as.character(c(-1000,-1.5,-0.8,0.8,1.5,1000)),
-                     margin=F, scales = list(draw = FALSE),main = "PPD_BMI")
+                     margin=F, scales = list(draw = FALSE),main = list(label = "PPD_BMI", cex = 1))
 print(PPD4map, split = c(3, 1, 5, 2), more = TRUE)
 
 
@@ -452,7 +451,7 @@ PPD5map <- matrix(PPD5map, t,s)
 
 PPD5map <- levelplot(t(PPD5map),col.regions = Acol.regions,xlab="sites",ylab="teeth", at = c(-1000,-1.5,-0.8,0.8,1.5,1000),
                      colorkey = FALSE, labels=as.character(c(-1000,-1.5,-0.8,0.8,1.5,1000)),
-                     margin=F, scales = list(draw = FALSE),main = "PPD_Smoker")
+                     margin=F, scales = list(draw = FALSE),main = list(label = "PPD_Smoker", cex = 1))
 print(PPD5map, split = c(4, 1, 5, 2), more = TRUE)
 
 ## PPD HbA1c ##
@@ -474,7 +473,7 @@ PPD6map <- matrix(PPD6map, t,s)
 
 PPD6map <- levelplot(t(PPD6map),col.regions = Acol.regions,xlab="sites",ylab="teeth", at = c(-1000,-1.5,-0.8,0.8,1.5,1000),
                      colorkey = FALSE, labels=as.character(c(-1000,-1.5,-0.8,0.8,1.5,1000)),
-                     margin=F, scales = list(draw = FALSE),main = "PPD_HbA1c")
+                     margin=F, scales = list(draw = FALSE),main = list(label = "PPD_HbA1c", cex = 1))
 print(PPD6map, split = c(5, 1, 5, 2), more = TRUE)
 
 
@@ -497,7 +496,7 @@ CAL2map <- matrix(CAL2map, t,s)
 
 CAL2map <- levelplot(t(CAL2map),col.regions = Acol.regions,xlab="sites",ylab="teeth", at = c(-1000,-1.5,-0.8,0.8,1.5,1000),
                      colorkey = FALSE, labels=as.character(c(-1000,-1.5,-0.8,0.8,1.5,1000)),
-                     margin=F, scales = list(draw = FALSE),main = "CAL_Age")
+                     margin=F, scales = list(draw = FALSE),main = list(label = "CAL_Age", cex = 1))
 
 print(CAL2map, split = c(1, 2, 5, 2), more = TRUE)
 
@@ -520,7 +519,7 @@ CAL3map <- matrix(CAL3map, t,s)
 
 CAL3map <- levelplot(t(CAL3map),col.regions = Acol.regions,xlab="sites",ylab="teeth", at = c(-1000,-1.5,-0.8,0.8,1.5,1000),
                      colorkey = FALSE, labels=as.character(c(-1000,-1.5,-0.8,0.8,1.5,1000)),
-                     margin=F, scales = list(draw = FALSE),main = "CAL_Gender")
+                     margin=F, scales = list(draw = FALSE),main = list(label = "CAL_Gender", cex = 1))
 
 print(CAL3map, split = c(2, 2, 5, 2), more = TRUE)
 
@@ -543,7 +542,7 @@ CAL4map <- matrix(CAL4map, t,s)
 
 CAL4map <- levelplot(t(CAL4map),col.regions = Acol.regions,xlab="sites",ylab="teeth", at = c(-1000,-1.5,-0.8,0.8,1.5,1000),
                      colorkey = FALSE, labels=as.character(c(-1000,-1.5,-0.8,0.8,1.5,1000)),
-                     margin=F, scales = list(draw = FALSE),main = "CAL_BMI")
+                     margin=F, scales = list(draw = FALSE),main = list(label = "CAL_BMI", cex = 1))
 print(CAL4map, split = c(3, 2, 5, 2), more = TRUE)
 
 ## CAL Smoker ##
@@ -565,7 +564,7 @@ CAL5map <- matrix(CAL5map, t,s)
 
 CAL5map <- levelplot(t(CAL5map),col.regions = Acol.regions,xlab="sites",ylab="teeth", at = c(-1000,-1.5,-0.8,0.8,1.5,1000),
                      colorkey = FALSE, labels=as.character(c(-1000,-1.5,-0.8,0.8,1.5,1000)),
-                     margin=F, scales = list(draw = FALSE),main = "CAL_Smoker")
+                     margin=F, scales = list(draw = FALSE),main = list(label = "CAL_Smoker", cex = 1))
 print(CAL5map, split = c(4, 2, 5, 2), more = TRUE)
 
 ## CAL HbA1c ##
@@ -587,7 +586,7 @@ CAL6map <- matrix(CAL6map, t,s)
 
 CAL6map <- levelplot(t(CAL6map),col.regions = Acol.regions,xlab="sites",ylab="teeth", at = c(-1000,-1.5,-0.8,0.8,1.5,1000),
                      colorkey = FALSE, labels=as.character(c(-1000,-1.5,-0.8,0.8,1.5,1000)),
-                     margin=F, scales = list(draw = FALSE),main = "CAL_HbA1c")
+                     margin=F, scales = list(draw = FALSE),main = list(label = "CAL_HbA1c", cex = 1))
 print(CAL6map, split = c(5, 2, 5, 2), more = TRUE)
 ```
 
