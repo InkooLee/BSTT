@@ -336,7 +336,7 @@ CAL6map <- levelplot(t(CAL6map),col.regions = Acol.regions,xlab="sites",ylab="te
 print(CAL6map, split = c(5, 2, 5, 2), more = TRUE)
 ```
 
-The following Figure shows checkerboard pattern impeding straightforward interpretation.
+The following Figure (Figure 1 in the main text) shows checkerboard pattern impeding straightforward interpretation.
 
 ```{r, echo=FALSE, fig.align='center', fig.width=7, fig.height=3, warning=FALSE}
 setwd("C:/Users/inkku/Downloads")
